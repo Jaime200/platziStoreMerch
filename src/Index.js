@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App'
 
-ReactDOM.render(<App/>,Document.getElementById('app'))
+ReactDOM.render(<App/>
+                ,document.getElementById('app'))
 
 
 
