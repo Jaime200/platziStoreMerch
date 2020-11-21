@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --mode development",
-    "build": "webpack --mode production",    
+    "build": "webpack --mode production",
     "format": "prettier --write \"{*.js,./src/**/*.{js,jsx}}\" ",
     "lint": "eslint src/ --fix"
   },
@@ -26,7 +26,8 @@
     "html-webpack-plugin": "^4.5.0",
     "prettier": "^2.2.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "7.12.7",

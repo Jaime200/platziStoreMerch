@@ -9,6 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/bundle.[name].js',
+    publicPath : '/'
   },
 
   resolve: {
@@ -20,6 +21,7 @@ module.exports = {
     port: 3100,
     // compress : true,
     contentBase: path.join(__dirname, 'dist'),
+    historyApiFallback: true
   },
 
   module: {
