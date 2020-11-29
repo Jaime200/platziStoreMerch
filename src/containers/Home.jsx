@@ -1,9 +1,15 @@
 import React from 'react'
-
-
+import initialState from '../initialState'
+import Products from '../components/Products'
 const Home = () =>{
+    
     return (
-        <h1>Home</h1>
+        <div>
+            <Products products={initialState.products} />
+        </div>
+        
+
+        
     )
 }
 
