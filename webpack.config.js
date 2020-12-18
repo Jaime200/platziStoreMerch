@@ -3,23 +3,33 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname,'src','index.js'),
+  entry: {
+    home: path.resolve(__dirname, 'src', 'Index.js'),
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/'
+    filename: 'js/bundle.[name].js',
+    publicPath : '/'
   },
+
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+
+  devServer: {
+    open: true,
+    port: 3100,
+    // compress : true,
+    contentBase: path.join(__dirname, 'dist'),
+    historyApiFallback: true
+  },
+
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        use: 'babel-loader',
+        exclude: '/node_modules/',
       },
       {
         test: /\.html$/,
@@ -40,19 +50,14 @@ module.exports = {
       },
     ],
   },
+
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: './index.html',
-    }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
     }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'public', 'index.html'),
+      filename: './index.html',
+    }),
   ],
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    compress: true,
-    historyApiFallback: true,
-    port: 3005,
-  },
 };
