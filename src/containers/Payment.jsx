@@ -10,7 +10,7 @@ const Payment = ({history}) =>{
     const { buyer } = state
 
     const paypalOptions = {
-        clientId : 'access_token$sandbox$6p9mpjhhnsnyyr76$ddb35e3746195694cdfe0b0c5b627d8d',
+        clientId : 'AbIG6Ixf2cN0p2TkhCalkJSQczhtVE9d3ls6rikDnpiYAF2al6EROmwgFkMD4jJ99FKwB_aofGgfx41q',
         intent: 'capture',
         currency : 'USD',
     }
@@ -51,18 +51,15 @@ const Payment = ({history}) =>{
 
                 }
                 <div className="Payment-button">
-                    <PayPalButton 
-                    paypalOptions = {paypalOptions}
-                    buttonStyles = {buttonStyles}
-                    amount = {handleSumTotal(cart)}
-                    onPaymentStart ={()=>{console.log('start payment') }}
-
-                    onPaymentSuccess={data =>handlePaymentSuccess(data)}
-
-                    onPaymentError = { error => { console.log(error) } }
-
-                    onPaymentCancel = { data =>{ console.log(data) } }
-                    />
+                <PayPalButton
+            paypalOptions={paypalOptions}
+            buttonStyles={buttonStyles}
+            amount={handleSumTotal(cart)}
+            onPaymentStart={() => console.log('Start Payment')}
+            onPaymentSuccess={data => handlePaymentSuccess(data)}
+            onPaymentError={error => console.log(error)}
+            onPaymentCancel={data => console.log(data)}
+          />
                 </div>
             </div>
         </div>
