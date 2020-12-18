@@ -1,9 +1,10 @@
 import  { useState } from 'react'
 import initialState from '../initialState'
+
 const useInitialState = ()=>{
     const [ state, setState ] = useState(initialState);
 
-    //Estas funciones son como un reducer
+    // Estas funciones son como un reducer
     const addToCart = payload =>{
         setState({
             ...state,
